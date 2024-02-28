@@ -16,17 +16,22 @@
             align-items: center;
             height: 100vh;
         }
+
         .login-container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
+
         .login-container h2 {
             text-align: center;
             margin-bottom: 20px;
         }
-        .login-form input[type="text"], .login-form input[type="email"], .login-form input[type="number"] {
+
+        .login-form input[type="text"],
+        .login-form input[type="email"],
+        .login-form input[type="number"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -34,6 +39,7 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
+
         .login-form button {
             width: 100%;
             padding: 10px;
@@ -43,6 +49,7 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .login-form button:hover {
             background-color: #0056b3;
         }
@@ -98,14 +105,15 @@
     <input type="text" id="Phone" placeholder="Phone"><br>
 
     <button id="proLogin" onclick="profilelogin()">Login</button>
-    <button>Push</button>
-    <button>Pop-Box</button>
-    <button>Pop-Banner</button>
-    <button>Pop-Interstitial</button>
-    <button>Pop-ImageOnly</button>
+    <button onclick="permit()">Push-Permission</button>
+    <button onclick="push()">Push</button>
+    <button onclick="box()">Pop-Box</button>
+    <button onclick="banner()">Pop-Banner</button>
+    <button onclick="interstitial()">Pop-Interstitial</button>
+    <button onclick="image()">Pop-ImageOnly</button>
 
     <script>
-        
+
         let profilelogin = () => {
             var tname, tidentity, tphone, temail;
             tname = document.getElementById('name').value;
@@ -127,6 +135,36 @@
                 }
             });
         };
+
+        let permit = () => {
+            clevertap.notifications.push({
+                "titleText": "Hello",
+                "bodyText": "Allow Push Notification",
+                "okButtonText": "Ok",
+                "rejectButtonText": "No",
+                "okButtonColor": "success"
+            });
+        }
+
+        let push=()=>{
+            clevertap.event.push("Push Notification.");
+        }
+
+        let box=()=>{
+            clevertap.event.push("PopUp Box Notification");
+        }
+
+        let banner=()=>{
+            clevertap.event.push("PopUp Banner Notification");
+        }
+
+        let image=()=>{
+            clevertap.event.push("PopUp Image only Notification");
+        }
+
+        let interstitial=()=>{
+            clevertap.event.push("PopUp Interestitial Notification");
+        }
     </script>
 </body>
 
