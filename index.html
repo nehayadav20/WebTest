@@ -149,22 +149,34 @@
             if (window.my_webview) {
                 my_webview.pushEvent("Push Notification");          
             }
-            clevertap.event.push("Push Notification.");
+            clevertap.event.push("Push Notification");
         }
 
         let box=()=>{
+            if (window.my_webview) {
+                my_webview.pushEvent("PopUp Box Notification");          
+            }
             clevertap.event.push("PopUp Box Notification");
         }
 
         let banner=()=>{
+            if (window.my_webview) {
+                my_webview.pushEvent("PopUp Banner Notification");          
+            }
             clevertap.event.push("PopUp Banner Notification");
         }
 
         let image=()=>{
+             if (window.my_webview) {
+                my_webview.pushEvent("PopUp Image only Notification");          
+            }
             clevertap.event.push("PopUp Image only Notification");
         }
 
         let interstitial=()=>{
+             if (window.my_webview) {
+                my_webview.pushEvent("PopUp Interestitial Notification");          
+            }
             clevertap.event.push("PopUp Interestitial Notification");
         }
     </script>
