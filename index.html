@@ -146,6 +146,9 @@
         }
 
         let push=()=>{
+            if (window.my_webview) {
+                my_webview.pushEvent("Push Notification");          
+            }
             clevertap.event.push("Push Notification.");
         }
 
