@@ -109,7 +109,7 @@
     <button onclick="banner()">Pop-Banner</button>
     <button onclick="interstitial()">Pop-Interstitial</button>
     <button onclick="image()">Pop-ImageOnly</button>
-    <button onclick="exit()">EXIT</button>
+    <button type="button" onclick="exit()">EXIT</button>
 
     <script>
 
@@ -180,7 +180,7 @@
             }
             clevertap.event.push("PopUp Interestitial Notification");
         }
-        let exit()=()=>{
+        let exit=()=>{
              if (window.my_webview) {
                 my_webview.pushEvent("Exit");          
             }
