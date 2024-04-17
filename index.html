@@ -27,7 +27,7 @@
             margin-left: 600px;
             padding: 5px 10px;
             border: 1px solid #ccc;
-            display:block;
+            display: block;
             text-align: center;
             border-radius: 5px;
             font-size: 16px;
@@ -48,8 +48,8 @@
             background-color: #45a049;
         }
 
-         #proLogin {
-            background-color:blueviolet
+        #proLogin {
+            background-color: blueviolet
         }
     </style>
     <script type="text/javascript">
@@ -66,6 +66,7 @@
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wzrk, s);
         })();
+
         clevertap.event.push("Native Display Neha");
 
     </script>
@@ -92,12 +93,25 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
+
+
+
+
     </script>
+
 
 </head>
 
 <body>
-    <div id="native"><h4>This is a Native Display</h4></div>
+    <div id="native">
+        <h4>This is a Native Display</h4>
+    </div>
+    <div>
+        <img id="nativeIMG">
+       
+        <h4>Here are custom KV ND</h4>
+        <img id="nativeIMG2">
+    </div>
     <h2>Login</h2>
     <input type="text" id="name" placeholder="Name">
     <input type="email" id="email" placeholder="Email">
@@ -114,6 +128,28 @@
     <button type="button" onclick="exit()">EXIT</button>
 
     <script>
+
+        document.addEventListener("CT_web_native_display", function (event) {
+            const data = event.detail;
+            const topic = data.kv.topic;
+            switch (topic) {
+                case "native display": {
+                    RenderImage(data);
+                    console.log("Event :"+event);
+
+                    break;
+                }
+            }
+          });
+         function RenderImage(data) {
+                const img1 = data.kv.IMG1;
+                const img2 = data.kv.IMG2;
+                var nativeImage = document.getElementById("nativeIMG");
+                nativeImage.src = img1;
+                var nativeImage2 = document.getElementById("nativeIMG2");
+                nativeImage2.src = img2;
+
+            }
 
         let profilelogin = () => {
             var tname, tidentity, tphone, temail;
@@ -144,47 +180,52 @@
                 "okButtonText": "Ok",
                 "rejectButtonText": "No",
                 "okButtonColor": "success",
-                "serviceWorkerPath": "/WebTest/clevertap_sw.js"
+                "serviceWorkerPath": "/clevertap_sw.js"
             });
         }
 
-        let push=()=>{
+        let push = () => {
             if (window.my_webview) {
-                my_webview.pushEvent("Web PopUp Notification");          
+
+                my_webview.pushEvent("Push Notification");
             }
-            clevertap.event.push("Web PopUp Notification");
+            clevertap.event.push("Push Notification.");
         }
 
-        let box=()=>{
+        let box = () => {
             if (window.my_webview) {
-                my_webview.pushEvent("PopUp Box Notification");          
+
+                my_webview.pushEvent("PopUp Box Notification");
             }
             clevertap.event.push("PopUp Box Notification");
         }
 
-        let banner=()=>{
+        let banner = () => {
             if (window.my_webview) {
-                my_webview.pushEvent("PopUp Banner Notification");          
+
+                my_webview.pushEvent("PopUp Banner Notification");
             }
             clevertap.event.push("PopUp Banner Notification");
         }
 
-        let image=()=>{
-             if (window.my_webview) {
-                my_webview.pushEvent("PopUp Image only Notification");          
+        let image = () => {
+            if (window.my_webview) {
+
+                my_webview.pushEvent("PopUp Image only Notification");
             }
             clevertap.event.push("PopUp Image only Notification");
         }
 
-        let interstitial=()=>{
-             if (window.my_webview) {
-                my_webview.pushEvent("PopUp Interestitial Notification");          
+        let interstitial = () => {
+            if (window.my_webview) {
+
+                my_webview.pushEvent("PopUp Interestitial Notification");
             }
             clevertap.event.push("PopUp Interestitial Notification");
         }
-        let exit=()=>{
-             if (window.my_webview) {
-                my_webview.pushEvent("Exit");          
+        let exit = () => {
+            if (window.my_webview) {
+                my_webview.pushEvent("Exit");
             }
             clevertap.event.push("Exit");
         }
