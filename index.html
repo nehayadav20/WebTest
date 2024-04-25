@@ -5,6 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <style type="text/css">
+
+        .wzrk-alert-heading{
+        
+        color: rgb(221, 84, 132) !important;
+        }
+        
+        .wzrk-alert-body{
+        
+        color: rgb(33, 203, 24) !important;
+        font-style: Arial !important;
+        }
+        
+        .wzrk-alert.wiz-show-animate{
+        
+        position: fixed !important;
+        background: rgb(173, 230, 226) !important;
+        left: 20px !important;
+        top: 100px !important;
+        width: 1000px !important;
+        
+        }
+        
+        .Sign{
+        color: rgb(16, 16, 4) !important;
+        font-family: Arial !important ;
+        background-color: rgb(223, 233, 28) !important;
+        }
+        
+        .No{
+        color: rgb(12, 12, 3) !important;
+        font-family: Arial !important ;
+        background-color: rgb(223, 233, 28) !important;
+        }
+        
+        </style>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,7 +104,7 @@
         })();
 
         clevertap.event.push("Native Display Neha");
-
+        
     </script>
 
     <script type="module">
@@ -174,14 +210,20 @@
         };
 
         let permit = () => {
+            if (window.my_webview) {
+                my_webview.pushEvent("Push Permission");
+            }
+            clevertap.event.push("Push Permission");
             clevertap.notifications.push({
-                "titleText": "Hello",
-                "bodyText": "Allow Push Notification",
-                "okButtonText": "Ok",
-                "rejectButtonText": "No",
-                "okButtonColor": "success",
+                "titleText": "Hey!",
+                "bodyText": "For updates,Allow Push Notification",
+                "okButtonText": "Allow",
+                "rejectButtonText": "Miss Out",
+                "okButtonColor": "#F28046",
                 "serviceWorkerPath": "/clevertap_sw.js"
             });
+
+
         }
 
         let push = () => {
