@@ -210,10 +210,6 @@
         };
 
         let permit = () => {
-            if (window.my_webview) {
-                my_webview.pushEvent("Push Permission");
-            }
-            clevertap.event.push("Push Permission");
             clevertap.notifications.push({
                 "titleText": "Hey!",
                 "bodyText": "For updates,Allow Push Notification",
