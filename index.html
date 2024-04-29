@@ -226,7 +226,7 @@
         };
 
         let permit = () => {
-            if (window.my_webview) {
+            
                
               clevertap.notifications.push({
                 "titleText": "Hey!",
@@ -237,15 +237,17 @@
                 "serviceWorkerPath": "/clevertap_sw.js",
                 "onClick": function (evt, btn) {
                 if (btn === "okButtonText") {
+            // Call the allowFunction() when "Allow" button is clicked
                     clevertap.event.push("Allow button clicked");
                 } else if (btn === "rejectButtonText") {
+            // Call the missOutFunction() when "Miss Out" button is clicked
                    clevertap.event.push("Miss out button clicked");
                 }
  
                }
             });
         }
-    }
+    
 
         let push = () => {
             if (window.my_webview) {
