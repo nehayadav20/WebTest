@@ -225,8 +225,6 @@
         };
 
         let permit = () => {
-            
-               
               clevertap.notifications.push({
                 "titleText": "Hey!",
                 "bodyText": "For updates,Allow Push Notification",
@@ -235,15 +233,15 @@
                 "okButtonColor": "#F28046",
                 "serviceWorkerPath": "/WebTest/clevertap_sw.js",
                 "onClick": function (evt, btn) {
-                    console.log("btn": btn);
+                   
                 if (btn === "okButtonText") {
             // Call the allowFunction() when "Allow" button is clicked
                     clevertap.event.push("Allow button clicked");
-                    console.log("Allow button clicked passed");
+                   
                 } else if (btn === "rejectButtonText") {
             // Call the missOutFunction() when "Miss Out" button is clicked
                    clevertap.event.push("Miss out button clicked");
-                    console.log("Miss out button clicked passed");
+                    
                 }
  
                }
