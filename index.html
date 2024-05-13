@@ -232,16 +232,17 @@
                 "rejectButtonText": "Miss Out",
                 "okButtonColor": "#F28046",
                 "serviceWorkerPath": "/WebTest/clevertap_sw.js",
-                "onClick": function (evt, btn) {
-                   
-                if (btn === "okButtonText") {
-            // Call the allowFunction() when "Allow" button is clicked
-                    clevertap.event.push("Allow button clicked");
-                   
-                } else if (btn === "rejectButtonText") {
-            // Call the missOutFunction() when "Miss Out" button is clicked
-                   clevertap.event.push("Miss out button clicked");
-                    
+                "okCallback":function () {
+                   clevertap.event.push("Allow button clicked");
+                   console.log("Allow button clicked");
+                },
+               "rejectCallback":function () {
+                clevertap.event.push("Miss out button clicked");
+                   console.log("Miss out button clicked");
+                },
+               "subscriptionCallback":function () {
+                clevertap.event.push("Chrome_Yes_Clicked");
+                   console.log("Chrome yes button clicked");
                 }
  
                }
